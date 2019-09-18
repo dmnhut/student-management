@@ -17,15 +17,19 @@ public class StudentManagement {
 
     /**
      * Main func
+     *
      * @param __
      */
     public static void main(String[] __) {
         Scanner scan;
         while (true) {
             scan = new Scanner(System.in);
-            System.out.println("====================================================================================================================================================");
-            System.out.println("(1) - Create student | (2) - Get student by code | (3) - Update status student by code | (4) Print students of class | (5) - List class | (6) - Exit");
-            System.out.println("====================================================================================================================================================");
+            System.out.println("========================================================================================" +
+                    "============================================================");
+            System.out.println("(1) - Create student | (2) - Get student by code | (3) - Update status student by code |" +
+                    " (4) Print students of class | (5) - List class | (6) - Exit");
+            System.out.println("========================================================================================" +
+                    "============================================================");
             switch (scan.nextLine().trim()) {
                 case "1":
                     createStudent();
@@ -95,6 +99,7 @@ public class StudentManagement {
 
     /**
      * Get student by code
+     *
      * @param studentCode
      * @return
      */
@@ -135,6 +140,7 @@ public class StudentManagement {
 
     /**
      * Update status of student with code
+     *
      * @param studentCode
      * @param status
      * @return
@@ -188,6 +194,7 @@ public class StudentManagement {
 
     /**
      * Print students by class code
+     *
      * @param classCode
      */
     public static void printStudentOfClass(String classCode) {
@@ -262,7 +269,8 @@ public class StudentManagement {
                     Student.classCode = data.readUTF();
                     Student.status = data.readInt();
                     for (int i = 0; i < MAX_SIZE_OF_CLASS_LIST; i++) {
-                        if (classCodeGroupByStatus[i].classCode.compareTo(NULL) == 0 || classCodeGroupByStatus[i].classCode.compareTo(Student.classCode) == 0) {
+                        if (classCodeGroupByStatus[i].classCode.compareTo(NULL) == 0 ||
+                                classCodeGroupByStatus[i].classCode.compareTo(Student.classCode) == 0) {
                             classCodeGroupByStatus[i].classCode = Student.classCode;
                             switch (Student.status) {
                                 case ACTIVE_STATUS:
@@ -294,7 +302,8 @@ public class StudentManagement {
             System.out.print("Active Students: " + classCodeGroupByStatus[i].active_status + ", ");
             System.out.print("Inactive Students: " + classCodeGroupByStatus[i].suspended_status + ", ");
             System.out.print("Suspended Students: " + classCodeGroupByStatus[i].inactive_status + ", ");
-            System.out.println("Total: " + (classCodeGroupByStatus[i].active_status + classCodeGroupByStatus[i].suspended_status + classCodeGroupByStatus[i].inactive_status));
+            System.out.println("Total: " + (classCodeGroupByStatus[i].active_status + 
+                    classCodeGroupByStatus[i].suspended_status + classCodeGroupByStatus[i].inactive_status));
         }
     }
 
